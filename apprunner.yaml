@@ -4,6 +4,6 @@ build:
   commands:
     build:
       - pip install pipenv
-      - python3 -m pipenv install --skip-lock
+      - python -m pipenv install --skip-lock
 run:
   command: pipenv run python3 application.py
