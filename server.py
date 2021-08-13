@@ -1,10 +1,14 @@
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
-import os 
+import os
 
 def hello_world(request):
-    return Response('Hello World!')
+    name = os.environ.get('NAME')
+    if name == None or name.len() == 0:
+        name = "world"
+    message = "Hello, " + name + "!\n"
+    return Response(message)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT"))
